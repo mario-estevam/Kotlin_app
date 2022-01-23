@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/telaInicial">
+
+    <fragment
+        android:id="@+id/telaInicial"
+        android:name="com.mariobr.app.fragments.TelaInicial"
+        android:label="Tela Inicial">
+        <action
+            android:id="@+id/action_telaInicial_to_cadastro"
+            app:destination="@id/cadastro" />
+        <action
+            android:id="@+id/action_telaInicial_to_pilotos"
+            app:destination="@id/pilotos" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cadastro"
+        android:name="com.mariobr.app.fragments.Cadastro"
+        android:label="Cadastro" >
+        <action
+            android:id="@+id/action_cadastro_to_telaInicial"
+            app:destination="@id/telaInicial" />
+    </fragment>
+    <fragment
+        android:id="@+id/pilotos"
+        android:name="com.mariobr.app.fragments.Pilotos"
+        android:label="Pilotos" >
+        <action
+            android:id="@+id/action_pilotos_to_listById"
+            app:destination="@id/listById" />
+    </fragment>
+    <fragment
+        android:id="@+id/listById"
+        android:name="com.mariobr.app.fragments.ListById"
+        android:label="Listagem de pilotos"
+        tools:layout="@layout/fragment_list_by_id">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_listById_to_pilotos"
+            app:destination="@id/pilotos" />
+    </fragment>
+</navigation>
